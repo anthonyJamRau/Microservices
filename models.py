@@ -123,6 +123,13 @@ class ToDoModel:
                  for i, column in enumerate(result_set[0].keys())}
                  for row in result_set]
        return result
+   
+   
+def search_by_title(self, search_term):
+    query = f"SELECT id, Title, Description, DueDate, _is_done FROM {self.TABLENAME} WHERE Title LIKE '%{search_term}%'"
+    result_set = self.conn.execute(query).fetchall()
+    return [{column: row[i] for i, column in enumerate(result_set[0].keys())} for row in result_set]
+
 
 
 

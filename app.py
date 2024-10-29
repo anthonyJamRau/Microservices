@@ -35,7 +35,8 @@ def hello_name(name):
 
 @app.route("/todo", methods=["GET"])
 def list_todo():
-   return jsonify(ToDoService().list())
+   search_term = request.args.get('search')
+   return jsonify(ToDoService().search_by_title(search_term))
 
 
 

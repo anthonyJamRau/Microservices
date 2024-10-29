@@ -27,3 +27,6 @@ class ToDoService:
    def get_by_id(self, item_id):
        response = self.model.get_by_id(item_id)
        return response
+   
+   def search_by_title(self, search_term):
+       return self.lmodel.search_by_title(search_term)
